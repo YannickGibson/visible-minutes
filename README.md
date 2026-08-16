@@ -6,9 +6,15 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![Privacy: 100% Offline](https://img.shields.io/badge/Privacy-100%25%20On--Device-brightgreen.svg?style=flat-square)](#-privacy--security)
 
-An intelligent, privacy-first Android application designed specifically for **Visible+ Pro** plan subscribers to track and analyze their monthly **500 international calling minutes** allotment across **85+ supported countries**.
+An intelligent, privacy-first Android application designed specifically for **Visible+** subscribers to automatically track, aggregate, and pace their **500 monthly international calling minutes** across 85+ countries.
 
-Visible carrier limits international calling to 500 minutes per billing cycle across supported destinations, but does not provide real-time native usage meters. This app bridges that gap automatically using local call logs.
+---
+
+### 💡 Why This App Exists
+
+As of now, the official **Visible app provides no native way to track your 500-minute monthly international limit** to selected countries. Customer support cannot provide real-time usage numbers and Visible explicitly encourages customers to manually track their own minutes.
+
+**This app does what Visible's app doesn't**: it automatically monitors your outgoing call logs, filters by your Visible SIM, classifies calls by international destination prefix, and provides real-time minute tracking, daily pace analytics, and billing cycle histograms — with zero manual bookkeeping.
 
 ---
 
