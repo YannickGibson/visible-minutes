@@ -29,9 +29,9 @@ Visible carrier limits international calling to 500 minutes per billing cycle ac
 ## 📸 Screenshots
 
 <p align="center">
-  <img src="docs/screenshots/dashboard_top.jpg" width="47%" alt="Dashboard Overview & Quota Meter" />
-  &nbsp;&nbsp;
-  <img src="docs/screenshots/histogram_analytics.jpg" width="47%" alt="Billing Cycle Histogram & Pace Analysis" />
+  <img src="docs/screenshots/dashboard_top.jpg" height="460" alt="Dashboard Overview & Quota Meter" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="docs/screenshots/histogram_analytics.jpg" height="460" alt="Billing Cycle Histogram & Pace Analysis" />
 </p>
 
 ---
