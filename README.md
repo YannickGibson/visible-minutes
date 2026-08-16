@@ -99,8 +99,8 @@ visible_international_minutes_aggregator/
 ### Build & Run Locally
 ```bash
 # Clone the repository
-git clone https://github.com/YannickGibson/visible-minute.git
-cd visible-minute
+git clone https://github.com/YannickGibson/visible-minutes.git
+cd visible-minutes
 
 # Build the Debug APK
 ./gradlew assembleDebug
