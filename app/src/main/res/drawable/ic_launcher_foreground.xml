@@ -1,0 +1,30 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Outer Globe Ring -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#0F62FE"
+        android:strokeWidth="4"
+        android:pathData="M54,24 A30,30 0 1,1 53.9,24 Z" />
+    <!-- Latitude / Longitude lines -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#33B1FF"
+        android:strokeWidth="3"
+        android:pathData="M24,54 L84,54" />
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#33B1FF"
+        android:strokeWidth="3"
+        android:pathData="M54,24 A16,30 0 0,1 54,84 A16,30 0 0,1 54,24" />
+    <!-- Call Badge -->
+    <path
+        android:fillColor="#00D084"
+        android:pathData="M66,66 m-14,0 a14,14 0 1,0 28,0 a14,14 0 1,0 -28,0" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M61.5,61.5 C62.1,60.9 63.0,60.9 63.6,61.5 L64.8,62.7 C65.4,63.3 65.4,64.2 64.8,64.8 L64.1,65.5 C64.6,66.6 65.4,67.4 66.5,67.9 L67.2,67.2 C67.8,66.6 68.7,66.6 69.3,67.2 L70.5,68.4 C71.1,69.0 71.1,69.9 70.5,70.5 L69.5,71.5 C68.8,72.2 67.8,72.4 66.8,72.0 C64.7,71.1 62.9,69.3 62.0,67.2 C61.6,66.2 61.8,65.2 62.5,64.5 L61.5,61.5 Z" />
+</vector>
