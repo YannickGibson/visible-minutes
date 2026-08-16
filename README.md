@@ -26,6 +26,16 @@ Visible carrier limits international calling to 500 minutes per billing cycle ac
 
 ---
 
+## 📸 Screenshots
+
+<p align="center">
+  <img src="docs/screenshots/dashboard_top.jpg" width="47%" alt="Dashboard Overview & Quota Meter" />
+  &nbsp;&nbsp;
+  <img src="docs/screenshots/histogram_analytics.jpg" width="47%" alt="Billing Cycle Histogram & Pace Analysis" />
+</p>
+
+---
+
 ## 🛠️ Architecture & Tech Stack
 
 This project is built following modern Android Architecture Components and Clean Architecture best practices:
