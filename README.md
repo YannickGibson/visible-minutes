@@ -139,8 +139,9 @@ The workflow uses the existing app signing key from the encrypted repository sec
 `ANDROID_SIGNING_KEYSTORE_BASE64`, preserving update compatibility with v1.0.0.
 The key must match the certificate fingerprint checked in the workflow; a missing
 secret or different key stops publication. Never commit the keystore to Git.
-For this repository, the existing signing configuration expects the original
-`~/.android/debug.keystore`; a newly generated debug key is not interchangeable.
+CI selects the restored key explicitly with `ANDROID_SIGNING_KEYSTORE_PATH`.
+Locally, the default signing configuration uses the original `~/.android/debug.keystore`;
+a newly generated debug key is not interchangeable.
 
 If a run fails, use **Re-run failed jobs** in Actions or run **Release APK** manually
 on `main`. A partially uploaded draft can resume from the same commit. If the commit

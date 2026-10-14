@@ -60,10 +60,11 @@ jobs:
           if not encoded:
               raise SystemExit("Set the ANDROID_SIGNING_KEYSTORE_BASE64 repository secret before releasing")
           # Preserve the key used by v1.0.0; the Gradle release build uses this signing config.
-          keystore = Path.home() / ".android" / "debug.keystore"
-          keystore.parent.mkdir(parents=True, exist_ok=True)
+          keystore = Path(os.environ["RUNNER_TEMP"]) / "release.keystore"
           keystore.write_bytes(base64.b64decode(encoded, validate=True))
           keystore.chmod(0o600)
+          with open(os.environ["GITHUB_ENV"], "a") as environment:
+              environment.write(f"ANDROID_SIGNING_KEYSTORE_PATH={keystore}\n")
           PY
 
       - name: Test, lint, and build the release APK
@@ -95,6 +96,7 @@ jobs:
           actual_digest=$(awk '/Signer #1 certificate SHA-256 digest:/ {print $NF}' <<< "$certificate")
           if [[ "$actual_digest" != "$SIGNING_CERT_SHA256" ]]; then
             echo 'Signing certificate does not match the existing app; refusing to publish.' >&2
+            echo "Expected $SIGNING_CERT_SHA256, got $actual_digest" >&2
             exit 1
           fi
           mkdir -p dist
@@ -123,4 +125,4 @@ jobs:
 
       - name: Remove the signing key from the runner
         if: always() && steps.release.outputs.publish == 'true'
-        run: rm -f "$HOME/.android/debug.keystore"
+        run: rm -f "$RUNNER_TEMP/release.keystore"

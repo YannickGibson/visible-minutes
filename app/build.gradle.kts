@@ -21,6 +21,15 @@ android {
         }
     }
 
+    signingConfigs {
+        getByName("debug") {
+            // CI restores the original key outside Android's environment-dependent default directory.
+            providers.environmentVariable("ANDROID_SIGNING_KEYSTORE_PATH").orNull?.let { keystorePath ->
+                storeFile = file(keystorePath)
+            }
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
