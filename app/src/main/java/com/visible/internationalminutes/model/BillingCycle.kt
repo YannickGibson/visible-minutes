@@ -2,7 +2,6 @@ package com.visible.internationalminutes.model
 
 import java.time.Instant
 import java.time.LocalDate
-import java.time.LocalDateTime
 import java.time.LocalTime
 import java.time.ZoneId
 import java.time.ZonedDateTime
@@ -106,10 +105,13 @@ data class BillingCycle(
             val zonedDateTime = referenceInstant.atZone(zoneId)
             val localDate = zonedDateTime.toLocalDate()
 
-            // Determine if the current date is before or after the billing day this month
-            val startLocalDate = if (localDate.dayOfMonth >= clampedDay) {
-                val safeDay = clampedDay.coerceAtMost(localDate.lengthOfMonth())
-                LocalDate.of(localDate.year, localDate.month, safeDay)
+            // Compare against this month's actual reset date. A day-31 cycle,
+            // for example, resets on September 30, not October 1.
+            val resetThisMonth = localDate.withDayOfMonth(
+                clampedDay.coerceAtMost(localDate.lengthOfMonth())
+            )
+            val startLocalDate = if (!localDate.isBefore(resetThisMonth)) {
+                resetThisMonth
             } else {
                 val prevMonth = localDate.minusMonths(1)
                 val safeDay = clampedDay.coerceAtMost(prevMonth.lengthOfMonth())

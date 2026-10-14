@@ -31,6 +31,13 @@ data class QuotaSummary(
             return (billedCountedMinutes.toFloat() / monthlyLimitMinutes.toFloat()).coerceIn(0f, 1f)
         }
 
+    /** Fraction of the allowance still available, matching the minutes-left gauge. */
+    val remainingFraction: Float
+        get() {
+            if (monthlyLimitMinutes <= 0) return 0f
+            return (remainingMinutes.toFloat() / monthlyLimitMinutes.toFloat()).coerceIn(0f, 1f)
+        }
+
     val usedPercentage: Int
         get() = (usedFraction * 100).toInt()
 

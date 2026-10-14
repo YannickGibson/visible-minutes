@@ -57,9 +57,9 @@ fun QuotaGaugeCard(
 ) {
     val animatedProgress = remember { Animatable(0f) }
 
-    LaunchedEffect(quota.usedFraction) {
+    LaunchedEffect(quota.remainingFraction) {
         animatedProgress.animateTo(
-            targetValue = quota.usedFraction,
+            targetValue = quota.remainingFraction,
             animationSpec = tween(durationMillis = 900, easing = FastOutSlowInEasing)
         )
     }
@@ -135,7 +135,7 @@ fun QuotaGaugeCard(
                         style = Stroke(width = strokeWidth, cap = StrokeCap.Round)
                     )
 
-                    // Active Progress Arc
+                    // Remaining allowance, matching the MINUTES LEFT label.
                     val sweep = 240f * animatedProgress.value
                     if (sweep > 0f) {
                         drawArc(

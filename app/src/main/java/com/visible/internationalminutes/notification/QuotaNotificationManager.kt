@@ -84,7 +84,7 @@ object QuotaNotificationManager {
             .setOnlyAlertOnce(true)
             .setAutoCancel(false)
             .setContentIntent(pendingIntent)
-            .setProgress(total, used, false)
+            .setProgress(total, remaining, false)
             .build()
 
         try {
