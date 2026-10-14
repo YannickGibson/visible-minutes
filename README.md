@@ -91,9 +91,19 @@ visible_international_minutes_aggregator/
 
 ## 🚀 Getting Started
 
+### Install the APK
+
+Download the APK from the [latest GitHub release](https://github.com/YannickGibson/visible-minutes/releases/latest),
+open it on your Android phone, and choose **Install** or **Update**. If Android asks,
+allow the app opening the APK to install apps from that source. Updating an existing
+installation preserves its settings.
+
+To explore the dashboard without a Visible SIM or real calls, enable **Demo Mock Call Data** in Settings.
+Usage is estimated from the phone's call logs; the app does not access Visible's billing records.
+
 ### Prerequisites
 - Android Studio Hedgehog (2023.1.1) or newer
-- JDK 17 or JDK 21
+- JDK 21 (set `JAVA_HOME` or select JDK 21 as Android Studio's Gradle JDK)
 - Android SDK 35 (compileSdk 35, minSdk 26)
 
 ### Build & Run Locally
@@ -111,6 +121,30 @@ cd visible-minutes
 # Install directly to a connected Android device
 adb install -r app/build/outputs/apk/release/app-release.apk
 ```
+
+### Automatic APK releases
+
+To publish a new version, increase **both** `versionCode` and `versionName` in
+`app/build.gradle.kts`, commit the changes, and push to `main`. For example, after
+1.0.1 (`versionCode = 2`), use `versionName = "1.0.2"` and `versionCode = 3`.
+Use a stable three-part version number such as `1.0.2`.
+
+The [Release APK workflow](https://github.com/YannickGibson/visible-minutes/actions/workflows/release.yml)
+runs the release unit tests and Android lint, builds and verifies the signed APK,
+then creates the matching `vX.Y.Z` tag and GitHub Release with an APK and SHA-256 checksum.
+The tag points to the exact commit that was built. Ordinary pushes with an already
+published version are skipped, and published APKs are never replaced.
+
+The workflow uses the existing app signing key from the encrypted repository secret
+`ANDROID_SIGNING_KEYSTORE_BASE64`, preserving update compatibility with v1.0.0.
+The key must match the certificate fingerprint checked in the workflow; a missing
+secret or different key stops publication. Never commit the keystore to Git.
+For this repository, the existing signing configuration expects the original
+`~/.android/debug.keystore`; a newly generated debug key is not interchangeable.
+
+If a run fails, use **Re-run failed jobs** in Actions or run **Release APK** manually
+on `main`. A partially uploaded draft can resume from the same commit. If the commit
+has changed, remove that unfinished draft or use a new version before retrying.
 
 ---
 
