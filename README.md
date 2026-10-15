@@ -35,7 +35,7 @@ As of now, the official **Visible app provides no native way to track your 500-m
 ## 📸 Screenshots
 
 <p align="center">
-  <img src="docs/screenshots/dashboard.jpg" height="460" alt="Dashboard Overview & Quota Meter" />
+  <img src="docs/screenshots/dashboard.png" height="460" alt="International Call Analytics Dashboard & Quota Meter" />
   &nbsp;&nbsp;&nbsp;&nbsp;
   <img src="docs/screenshots/histogram.jpg" height="460" alt="Billing Cycle Histogram & Pace Analysis" />
 </p>
